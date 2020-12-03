@@ -1,0 +1,25 @@
+---
+
+- name: Make directory for {{ logger_name }} in conf.d
+  file:
+    path: "/etc/datadog-agent/conf.d/{{ logger_name }}.d"
+    owner: dd-agent
+    group: dd-agent
+    state: directory
+
+- name: add dd-agent to adm group
+  user:
+    name: dd-agent
+    groups: adm
+    append: yes
+  when: adm_group_required|bool == True
+
+- name: Add config file to conf.d in Datadog for {{ logger_name }}
+  template:
+    src: "logger.yaml.j2"
+    dest: "/etc/datadog-agent/conf.d/{{ logger_name }}.d/{{ logger_name }}.yaml"
+    force: no
+    owner: dd-agent
+    group: dd-agent
+  notify:
+    - restart datadog-agent

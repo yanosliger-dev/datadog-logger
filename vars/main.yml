@@ -1,0 +1,6 @@
+---
+### defaults
+logger_name: dmesg
+log_file_owner: syslog
+log_file_path: /var/log/syslog
+adm_group_required: True

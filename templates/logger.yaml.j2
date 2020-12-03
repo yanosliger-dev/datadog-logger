@@ -1,0 +1,5 @@
+logs:
+  - type: file
+    path: {{ log_file_path }}
+    service: {{ log_file_owner }}
+    source: {{ logger_name }}
