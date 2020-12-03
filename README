@@ -1,4 +1,4 @@
-### Adds a log section for custom logs in datadog
+Adds a log section for custom logs in datadog
 
 vars required to run
 
@@ -10,7 +10,7 @@ adm_group_required: does the dd-agent need adding to the adm group to access the
 defaults set to syslog
 
 
-### Usage ###
+Usage
 
 ---
 - hosts:
